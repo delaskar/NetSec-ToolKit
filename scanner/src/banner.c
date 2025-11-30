@@ -103,7 +103,7 @@ void identify_service(BannerInfo *info) {
         return;
     }
 
-    // TODO: Detectar SSH
+    // Detectar SSH
     if (strstr(info->banner, "SSH-") != NULL) {
         strcpy(info->service_name, "SSH");
         // Copiar toda la primera línea como versión
@@ -118,7 +118,7 @@ void identify_service(BannerInfo *info) {
         return;
     }
 
-    // TODO: Detectar FTP
+    // Detectar FTP
     if (strstr(info->banner, "220 ") != NULL && strstr(info->banner, "FTP") != NULL) {
         strcpy(info->service_name, "FTP");
         char *end = strchr(info->banner, '\n');
@@ -130,7 +130,7 @@ void identify_service(BannerInfo *info) {
         return;
     }
 
-    // TODO: Detectar SMTP
+    // Detectar SMTP
     if (strstr(info->banner, "220 ") != NULL && strstr(info->banner, "SMTP") != NULL) {
         strcpy(info->service_name, "SMTP");
         char *end = strchr(info->banner, '\n');
@@ -142,7 +142,7 @@ void identify_service(BannerInfo *info) {
         return;
     }
 
-    // TODO: Detectar SMB (por puerto conocido)
+    // Detectar SMB (por puerto conocido)
     if (info->port == 445 || info->port == 139) {
         strcpy(info->service_name, "SMB");
         strcpy(info->service_version, "Port 445/139 (SMB/NetBIOS)");
